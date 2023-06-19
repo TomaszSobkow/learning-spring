@@ -1,7 +1,11 @@
 package com.tomaszsobkow.learningspring.data;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name="ROOM")
 public class Room {
@@ -20,21 +24,13 @@ public class Room {
     @Column(name="BED_INFO")
     private String bedInfo;
 
-    public long id() { return id; }
-    public Room setId(long id) { this.id = id;  return this; }
-
-    public String name() { return name; }
-    public Room setName(String name) { this.name = name; return this; }
-
-    public String roomNumber() { return roomNumber; }
-    public Room setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
-        return this;
-    }
-
-    public String bedInfo() { return bedInfo; }
-    public Room setBedInfo(String bedInfo) {
-        this.bedInfo = bedInfo;
-        return this;
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", bedInfo='" + bedInfo + '\'' +
+                '}';
     }
 }
